@@ -37,7 +37,7 @@ func startHttpJob(ctx context.Context, u string, number int) {
 			"error", err)
 		return
 	}
-	log.Infof("start http job",
+	log.Infow("start http job",
 		"url", uri.String(),
 		"host", uri.Host,
 	)
@@ -53,7 +53,14 @@ func httpJob(ctx context.Context, u string) {
 		case <-ctx.Done():
 			break
 		default:
-			httpGet(ctx, u)
+			ret, err := httpGet(ctx, u)
+			if err != nil {
+				log.Errorw("http get error",
+					"error", err)
+				continue
+			}
+			log.Infow("http get ",
+				"ret", ret)
 		}
 	}
 }
