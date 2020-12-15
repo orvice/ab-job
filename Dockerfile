@@ -3,6 +3,8 @@ FROM golang:1.15 as builder
 ARG ARG_GOPROXY
 ENV GOPROXY $ARG_GOPROXY
 
+ENV CGO_ENABLED 0
+
 WORKDIR /home/app
 COPY go.mod go.sum ./
 
