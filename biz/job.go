@@ -44,6 +44,7 @@ func startHttpJob(ctx context.Context, u string, number int) {
 	var i = 0
 	for i < number {
 		go httpJob(ctx, u)
+		i++
 	}
 }
 
