@@ -18,6 +18,6 @@ FROM orvice/go-runtime
 
 ENV PROJECT_NAME ab-job
 
-COPY --from=builder /home/app/bin/${PROJECT_NAME} /app/bin
+COPY --from=builder /home/app/bin/${PROJECT_NAME} /app/bin/${PROJECT_NAME}
 
 ENTRYPOINT exec /app/bin/${PROJECT_NAME}
