@@ -29,5 +29,7 @@ jobs:
           tags: orvice/ab-job:latest
       - name: Build and publish Docker Image to GitHub Packages Registry
         uses: VaultVulp/gp-docker-action@1.1.7
+        with:
+          github-token: ${{ secrets.GITHUB_PKG_TOKEN }}
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
