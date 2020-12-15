@@ -40,7 +40,6 @@ jobs:
         uses: VaultVulp/gp-docker-action@1.1.7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }} # Provide GITHUB_TOKEN to login into the GitHub Packages
-          image-name: ab-job # Provide only Docker image name, tag will be automatically set to latest
           dockerfile: Dockerfile
 
   build-and-publish-tag:
@@ -54,5 +53,4 @@ jobs:
         uses: VaultVulp/gp-docker-action@1.1.7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }} # Provide GITHUB_TOKEN to login into the GitHub Packages
-          image-name: ab-job # Provide only Docker image name
           extract-git-tag: true # Provide flag to extract Docker image tag from git reference
